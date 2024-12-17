@@ -26,18 +26,9 @@
     
     <style>
       body {
-        background-color: #ECDFCC;
-      }
-      .logo-container {
-          display: flex;
-          flex-wrap: wrap; /* Allows items to wrap to the next line if needed */
-      }
-      .item {
-          flex: 1 1 25%; /* Grow and shrink, with a base size of 25% */
-          box-sizing: border-box; /* Include padding and border in the element's total width and height */
-          padding: 20px; /* Add some padding for spacing */
-          background-color: #ECDFCC; /* Background color for visibility */
-          text-align: center; /* Center the text */
+        background-image: url('asset/christmas-background/06.png');
+        background-size: cover;
+        background-repeat: no-repeat;
       }
 
       .card {
@@ -83,9 +74,6 @@
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/show-overall.html">全隊總成績</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/show-outro.html">花絮</a>
             </li>
           </ul>
         </div>
@@ -174,15 +162,6 @@
           <button class="btn btn-info btn-next" onclick="nextQuestion()">繼續下一題</button>
         </div>
       </div>
-
-      <br><br>
-      <div class="row" style="opacity: 0.15;">
-        <div class="col-7">
-          <video src="/asset/the-return-journey.mp4" controls autoplay loop></video>
-        </div>
-        <div class="col-5">
-        </div>
-      </div>
       
     </div>
     <script src="/js/show-explain.js"></script>
@@ -216,7 +195,7 @@
             
           } else {
             // No user is signed in.
-            window.location = '/player-login.html'
+            
           }
         }); 
       });
