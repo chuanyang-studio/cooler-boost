@@ -152,7 +152,30 @@ function nextQuestion() {
     
 
     // 隊伍中，最高分個人分數為隊伍分數
+    firebase.firestore().collection('team')
+    .onSnapshot((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        const team = doc.id
 
+        // 求出最高分個人分數
+        firebase.firestore().collection('user').where('team', '==', team).orderBy('fire', 'desc').limit(1)
+        .onSnapshot((snapUsers) => {
+          if (snapUsers.size != 0) { // 正常情況
+            snapUsers.forEach((user) => {
+              let highest = user.data()['fire']
+  
+              // 寫回 team
+              firebase.firestore().collection('team').doc(team)
+              .update({fire: highest})
+            })
+          } else { // 註冊的時候沒有人選擇該隊伍
+            // 寫回 team
+            firebase.firestore().collection('team').doc(team)
+            .update({fire: 1})
+          }
+        })
+      })
+    })
 
     // 顯示抽獎畫面
     // window.location = '/show-minigame.html'
