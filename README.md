@@ -15,4 +15,4 @@
 - [x] Firebase Auth
 - [x] Firebase Hosting
 - [x] Firebase Firestore
-- [ ] Firebase Functions
+- [x] Firebase Functions
