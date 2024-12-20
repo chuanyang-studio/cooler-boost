@@ -131,7 +131,7 @@ function nextQuestion() {
   const btnQuestionid = document.querySelector('.btn-questionid')
   const questionid = parseInt(btnQuestionid.innerHTML)
 
-  if (questionid == 5) {
+  if (questionid == 10) {
     window.location = '/show-minigame.html'
   } else {
     // 設定分類
