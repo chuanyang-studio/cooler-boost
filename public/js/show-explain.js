@@ -131,8 +131,31 @@ function nextQuestion() {
   const btnQuestionid = document.querySelector('.btn-questionid')
   const questionid = parseInt(btnQuestionid.innerHTML)
 
-  if (questionid == 10) {
-    window.location = '/show-minigame.html'
+  if (questionid == 10) { // 已經回答完問題，進入到下一個環節
+    // 結算個人答對題數
+    // 遍歷 user
+    firebase.firestore().collection('user')
+    .onSnapshot((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        const uid = doc.id
+
+        // 求出火把數目
+        firebase.firestore().collection('player-correct-answer').where('user', '==', uid)
+        .onSnapshot((snapCorrect) => {
+
+          // 寫回 user
+          firebase.firestore().collection('user').doc(uid)
+          .update({fire: snapCorrect.size})
+        })
+      })
+    })
+    
+
+    // 隊伍中，最高分個人分數為隊伍分數
+
+
+    // 顯示抽獎畫面
+    // window.location = '/show-minigame.html'
   } else {
     // 設定分類
     const ref = firebase.firestore().collection('show-category-display').doc('A89mIhkZn1Re2aIhRRDe')
