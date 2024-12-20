@@ -51,24 +51,21 @@ function updateCache() {
  * 清除答對題數
  */
 function truncatePlayerCorrectAnswer() {
-    const endpoint = 'https://us-central1-animated-spoon.cloudfunctions.net/truncatePlayerCorrectAnswer';
-    axios.get(endpoint)
+    firebase.functions().httpsCallable('truncatePlayerCorrectAnswer')().then(() => { });
 }
 
 /**
  * 清除玩家答案
  */
 function truncatePlayerAnswerDisplay() {
-    const endpoint = 'https://us-central1-animated-spoon.cloudfunctions.net/truncatePlayerAnswerDisplay';
-    axios.get(endpoint)
+    firebase.functions().httpsCallable('truncatePlayerAnswerDisplay')().then(() => { });
 }
 
 /**
  * 清除答對題數標記
  */
 function truncateAlreadyChecked() {
-    const endpoint = 'https://us-central1-animated-spoon.cloudfunctions.net/truncateAlreadyChecked';
-    axios.get(endpoint)
+    firebase.functions().httpsCallable('truncateAlreadyChecked')().then(() => { });
 }
 
 /**

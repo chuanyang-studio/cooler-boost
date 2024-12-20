@@ -65,6 +65,5 @@ function showSpinner() {
  * 解除鎖定作答
  */
 function truncatePlayerLockDown() {
-    const endpoint = 'https://us-central1-animated-spoon.cloudfunctions.net/truncatePlayerLockDown';
-    axios.get(endpoint)
+    firebase.functions().httpsCallable('truncatePlayerLockDown')().then(() => { });
 }
