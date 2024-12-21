@@ -89,6 +89,16 @@
       <br><br><br><br><br><br><br><br>
       <div class="row">
         <div class="col-4">
+          <select name="team-container" id="team-container" class="form-select" onchange="handleChange()">
+            <option value="隊伍清單">隊伍清單</option>
+          </select>
+        </div>
+        <div class="col-3"></div>
+        <div class="col-5"id="team-fire"></div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-4">
           <button class="btn btn-warning card-num" onclick="pick()"></button>
         </div>
         <div class="col-8">
@@ -315,8 +325,12 @@
         const card_num = document.querySelector('.card-num')
         card_num.style.backgroundImage = `url('/asset/playing-cards/back.png')`;
         card_num.style.backgroundSize = 'cover';
+
+        // 讀取隊伍抽獎次數
+        getAllTeamsFire()
       });
       
     </script>
+    <script src="js/show-minigame.js"></script>
   </body>
 </html>
