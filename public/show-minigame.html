@@ -99,7 +99,7 @@
       <br>
       <div class="row">
         <div class="col-4">
-          <button class="btn btn-warning card-num" onclick="pick()"></button>
+          <button class="btn btn-warning card-num" onclick="delayedLoop()"></button>
         </div>
         <div class="col-8">
           <div class="row">
@@ -269,15 +269,6 @@
 
         })
         .catch((err) => {console.error('自動計分錯誤', err)})
-      }
-
-      const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
-      async function delayedLoop(team, times) {
-        for (let i = 1; i <= times; i++) {
-          pick(team)
-          await delay(1500); // Wait for 1 second between iterations
-          pick()
-        }
       }
 
       function pick(team) {
