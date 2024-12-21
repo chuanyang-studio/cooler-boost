@@ -262,15 +262,15 @@
       }
 
       const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
-      async function delayedLoop(times) {
+      async function delayedLoop(team, times) {
         for (let i = 1; i <= times; i++) {
-          pick()
+          pick(team)
           await delay(1500); // Wait for 1 second between iterations
           pick()
         }
       }
 
-      function pick() {
+      function pick(team) {
         const card_num = document.querySelector('.card-num');
         const card_desc = document.querySelector('.card-desc');
 
@@ -288,7 +288,6 @@
           const result = mapping(pickedNumber);
 
           // 自動計算最新隊伍成績
-          let team = 'Team Taiwan'
           updateScoreboard(team, pickedNumber)
 
           // card_num.innerHTML = result[0];
