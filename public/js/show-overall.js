@@ -12,7 +12,8 @@ function updateScoreboard () {
             console.log(doc.id)
             const name = doc.data()['name']
             const score = doc.data()['score']
-            const per = Math.floor(100 * (score / 70000.0))
+            const maxScore = 30000.0
+            const per = Math.floor(100 * (score / maxScore))
             let item = ''
             if (per >= 70) {
                 item = `<br><div class="row">
