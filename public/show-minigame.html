@@ -144,7 +144,7 @@
           '23': ['方塊11', '分數+10000', 'op3', 10000],
           '24': ['方塊12', '分數+10000', 'op3', 10000],
           '25': ['方塊13', '分數+10000', 'op3', 10000],
-          '26': ['愛心1', '其他隊+300', 'op4', 300],
+          '26': ['愛心1', '分數開根號', 'op1', 0],
           '27': ['愛心2', '分數+5000', 'op3', 5000],
           '28': ['愛心3', '分數+1000', 'op3', 1000],
           '29': ['愛心4', '分數+1000', 'op3', 1000],
@@ -259,6 +259,15 @@
 
         })
         .catch((err) => {console.error('自動計分錯誤', err)})
+      }
+
+      const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
+      async function delayedLoop(times) {
+        for (let i = 1; i <= times; i++) {
+          pick()
+          await delay(1500); // Wait for 1 second between iterations
+          pick()
+        }
       }
 
       function pick() {
